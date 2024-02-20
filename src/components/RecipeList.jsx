@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
-import recipesJ from "../data/recipes.js"
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigate } from "react-router-native";
 import SearchBar from "./SearchBar.jsx";

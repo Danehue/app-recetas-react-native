@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useParams } from "react-router-native";
-import recipes from "../data/recipes.js";
 import { useLocation } from "react-router-native";
 import { useNavigate } from "react-router-native";
 
