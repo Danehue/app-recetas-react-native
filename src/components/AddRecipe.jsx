@@ -16,7 +16,7 @@ const AddRecipe = () => {
         image: 'https://us.123rf.com/450wm/rastudio/rastudio1508/rastudio150800021/42978054-icono-de-boceto-palomitas-para-web-y-m%C3%B3vil-mano-vector-dibujado-icono-gris-oscuro-sobre-fondo-gris.jpg?ver=6',
         desc: '',
         fav: false
-    });
+    }); 
     
     const handleChangeRecipe = (field, value, index) => {
       setRecipe(prevState => {
