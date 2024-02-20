@@ -1,0 +1,67 @@
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'URL_de_tu_proyecto';
+const supabaseKey = 'Clave_de_API';
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+const App = () => {
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    async function fetchRecipes() {
+      const { data, error } = await supabase
+        .from('recipes')
+        .select('id, recipeName, recipeImage');
+
+      if (error) {
+        console.error('Error al obtener las recetas:', error.message);
+      } else {
+        setRecipes(data);
+      }
+    }
+
+    fetchRecipes();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        {recipes.map(recipe => (
+          <View key={recipe.id} style={styles.recipeContainer}>
+            <Image source={{ uri: recipe.recipeImage }} style={styles.recipeImage} />
+            <Text style={styles.recipeName}>{recipe.recipeName}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 20,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+  },
+  scrollContent: {
+    alignItems: 'center',
+  },
+  recipeContainer: {
+    marginBottom: 20,
+  },
+  recipeImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 10,
+  },
+  recipeName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
+});
+
+export default App;
