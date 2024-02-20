@@ -134,5 +134,7 @@ dist
 dist/
 web-build/
 
+%ProgramData%/
+
 # Metro
 .metro-health-check*
