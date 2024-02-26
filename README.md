@@ -8,7 +8,7 @@ Note: This app is primarily designed for Android and iPhone devices but is also 
 - Edit Recipes: Modify existing recipes to adjust ingredients, quantities, or descriptions as needed.
 - Delete Recipes: Remove recipes that are no longer needed.
 - Upload Images: Attach images to your recipes for better visualization.
-- Search Recipes: Search for recipes by name or ingredients to quickly find what you need.
+- Search Recipes: Search for recipes by name to quickly find what you need.
 - Calculate Production Cost: Estimate the production cost of each recipe based on ingredient prices
 
 ## Installation
