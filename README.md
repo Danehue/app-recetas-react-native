@@ -18,6 +18,6 @@ Set up your development environment following the instructions in the Configurat
 Run the application on your device or emulator.
 
 ## Technologies Used
-React Native
-Firebase (Firestore, Storage)
+React Native,
+Firebase (Firestore, Storage),
 Expo
