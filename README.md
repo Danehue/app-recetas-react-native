@@ -1,6 +1,6 @@
 # Recipe App
 ## Description
-The Recipe App is a mobile application that allows users to create their favorite recipes. With an intuitive and user-friendly interface, you can add ingredients, instructions, photos and even calculate the production cost for each recipe, keeping your culinary creations organized and accessible at all times.
+Mobile application that allows users to create their favorite recipes. With an intuitive and user-friendly interface, you can add ingredients, instructions, photos and even calculate the production cost for each recipe, keeping your culinary creations organized and accessible at all times.
 Note: This app is primarily designed for Android and iPhone devices but is also compatible with web browsers, ensuring accessibility across different platforms.
 
 ## Features
