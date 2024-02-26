@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, ActivityIndicator } from "react-native";
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigate } from "react-router-native";
 import SearchBar from "./SearchBar.jsx";
 
-
 import firebase from "../../database/firebase.js";
-import {getFirestore, collection, addDoc, getDocs, doc, deleteDoc, getDoc, setDoct, onSnapshot, QuerySnapshot } from 'firebase/firestore';
+import {getFirestore, collection, getDocs } from 'firebase/firestore';
 const db = getFirestore();
 
 const RecipeList = () => {
+  const tableRecipes = 'recipes';
   const navigate = useNavigate()
   const [recipes, setRecipes] = useState([])
   const [saving, setSaving] = useState(true);
@@ -18,7 +17,7 @@ const RecipeList = () => {
     const fetchRecipes = async () => {
       setSaving(true);
       try {
-        const querySnapshot = await getDocs(collection(db, 'recipes-v2'));
+        const querySnapshot = await getDocs(collection(db, tableRecipes));
         const recipeArray = []
         querySnapshot.docs.forEach((doc) => {
           const {name, ingredients, image, desc, fav} = doc.data()
@@ -42,7 +41,6 @@ const RecipeList = () => {
 
     fetchRecipes();
   }, []);
-  console.log(recipes)
   
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -76,9 +74,7 @@ const RecipeList = () => {
                 ))}
                 
               </View>
-              <TouchableOpacity style={styles.editButton}  onPress={() => toggleFavorite(recipe)}>
-                {recipe.fav ? <Icon name="pencil" size={24} color="#333" /> : <Icon name="pencil" size={24} color='#333' />}
-              </TouchableOpacity>
+              
             </View>
           </TouchableOpacity>
         ))}
@@ -112,9 +108,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopWidth: 1,
     borderColor: "#ccc",
-    height: 200,
     alignItems: 'center',
-    backgroundColor: "#ededed"
+    backgroundColor: "#ededed",
+    minHeight: 190,
   },
   postImage: {
     width: "40%",
@@ -124,22 +120,14 @@ const styles = StyleSheet.create({
   },
   postContent: {
     flex: 1,
-    height: "80%",
+    // height: "90%",
+    alignSelf: 'flex-start',
   },
   postTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     paddingVertical: 10,
   },
-  editButton: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    padding: 10,
-    borderRadius: 50,
-    backgroundColor: '#ccc',
-  },
 });
-    
 
 export default RecipeList

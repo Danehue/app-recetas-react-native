@@ -3,7 +3,7 @@ import RecipeList from './RecipeList.jsx'
 import Recipe from './Recipe.jsx'
 import AddRecipe from './AddRecipe.jsx';
 import Supplies from './Supplies.jsx';
-import { StyleSheet, Text, View, BackHandler} from 'react-native'
+import { StyleSheet, BackHandler} from 'react-native'
 import { Routes, Route, useNavigate} from 'react-router-native';
 
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import Main from './src/components/Main.jsx'
-import Constants from 'expo-constants'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import BottomBar from './src/components/BottomBar.jsx'
-import SearchBar from './src/components/SearchBar.jsx'
 import { NativeRouter } from 'react-router-native';
+import { StatusBar } from 'react-native';
 
 export default function App() {
-    
+  StatusBar.setBarStyle('dark-content');
+  
   return (
     <View style={styles.container}>
       <NativeRouter>
@@ -20,15 +20,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
     flex: 1,
     width: '100%',
     height: '100%',
-    paddingBottom: 65
+    paddingBottom: 95
   },
-  title: {
-  }
-  
 });
 
 
