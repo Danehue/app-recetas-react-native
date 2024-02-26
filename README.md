@@ -1,4 +1,4 @@
-# app-recetas-react-native
+# app-recipes-react-native
 ## Description
 The Recipe App is a mobile application that allows users to create their favorite recipes. With an intuitive and user-friendly interface, you can add ingredients, instructions, photos and even calculate the production cost for each recipe, keeping your culinary creations organized and accessible at all times.
 
