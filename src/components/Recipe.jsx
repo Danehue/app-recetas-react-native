@@ -54,7 +54,7 @@ const Recipe = ({ route }) => {
       const recipeName = recipe.name.trim().replace(/\s+/g, "_").toLowerCase();
       const imageName = `${recipeName}.jpg`;
       const storageRef = ref(storage, `images/${imageName}`);
-      await deleteObject(storageRef);
+      deleteObject(storageRef);
       navigate('/');
     } catch (error) {
       console.error('Error al eliminar el documento:', error);
