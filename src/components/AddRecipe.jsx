@@ -77,10 +77,12 @@ const AddRecipe = () => {
         updatedRecipe.ingredients.reverse();
         setRecipe(updatedRecipe);
 
-        const ingredientsData = recipe.ingredients
-          .filter(({ name }) => name.trim() !== '')
-          .map(({ name, quantity }) => ({ name, quantity }));
-        const recipeData = { ...recipe, ingredients: ingredientsData };
+        // Limpiar los espacios en blanco al principio o al final del nombre de los ingredientes
+        const ingredientsData = recipe.ingredients.map(({ name, quantity }) => ({ name: name.trim(), quantity }));
+        // Filtrar los ingredientes que tengan un nombre no vacío
+        const nonEmptyIngredients = ingredientsData.filter(({ name }) => name !== '');
+        const recipeData = { ...recipe, ingredients: nonEmptyIngredients };
+
         try {
           setSaving(true);
           if (editingRecipe && editingRecipe.id) {

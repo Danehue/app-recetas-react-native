@@ -23,17 +23,18 @@ const Supplies = () => {
 
     const saveSupply = async () => {
         // Convertir las cadenas de quantity y price a enteros
+        const trimmedName = name.trim();
         const quantityInt = parseInt(quantity);
         const priceInt = parseInt(price);
 
-        if (name === '' || isNaN(quantityInt) || isNaN(priceInt)) {
+        if (trimmedName === '' || isNaN(quantityInt) || isNaN(priceInt)) {
             alert("Todos los campos deben estar llenos y la cantidad y el precio deben ser números enteros");
             return;
         }
         setSaving(true);
         try {
-            const docRef = await addDoc(collection(db, tableSupplies), { name, quantity: quantityInt, price: priceInt });
-            const newSupply = { id: docRef.id, name, quantity: quantityInt, price: priceInt };
+            const docRef = await addDoc(collection(db, tableSupplies), { name: trimmedName, quantity: quantityInt, price: priceInt });
+            const newSupply = { id: docRef.id, name: trimmedName, quantity: quantityInt, price: priceInt };
             setSupplies(prevSupplies => [...prevSupplies, newSupply]);
             setName('');
             setQuantity('');
